@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "proxmark3": {
+      "command": "node",
+      "args": ["/home/kratos/Dev/pm_mcp/dist/index.js"]
+    }
+  }
+}
