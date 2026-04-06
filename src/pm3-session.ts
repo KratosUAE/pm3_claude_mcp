@@ -317,7 +317,12 @@ export class PM3Session {
         finish();
       });
 
-      proc.stdin?.write("exit\n");
+      if (proc.stdin && !proc.stdin.destroyed) {
+        proc.stdin.once("error", () => {}); // ignore EPIPE during shutdown
+        proc.stdin.write("exit\n");
+      } else {
+        proc.kill("SIGTERM");
+      }
     });
   }
 
