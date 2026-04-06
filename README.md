@@ -42,6 +42,7 @@ All configuration is through environment variables:
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `PM3_BINARY_PATH` | No | Auto-detect via `which pm3` / `which proxmark3`, fallback `/usr/local/bin/pm3` | Path to pm3 binary |
+| `PM3_CWD` | No | Parent dir of pm3 binary | Working directory for pm3 process (where dictionaries, CARDS/ etc. live) |
 | `PM3_IDLE_TIMEOUT` | No | `3000` | Idle timeout in ms (how long to wait after last output before considering command complete) |
 | `PM3_MAX_TIMEOUT` | No | `120000` | Max timeout in ms for any single command |
 | `PM3_DEBUG` | No | off | Set to `1`, `true`, or `yes` to enable debug logging to stderr |

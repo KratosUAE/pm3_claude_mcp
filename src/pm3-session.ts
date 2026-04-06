@@ -1,5 +1,4 @@
 import { spawn, type ChildProcess } from "node:child_process";
-import { dirname } from "node:path";
 import { SessionState, type CommandResult, type PM3Config } from "./types.js";
 import { resolveConfig } from "./config.js";
 import { stripAnsi } from "./pm3-output-parser.js";
@@ -68,7 +67,7 @@ export class PM3Session {
     return new Promise<string>((resolve, reject) => {
       const proc = spawn(this.config.pm3Binary, args, {
         stdio: ["pipe", "pipe", "pipe"],
-        cwd: dirname(this.config.pm3Binary),
+        cwd: this.config.pm3Cwd,
         env: { ...process.env, TERM: "dumb" },
       });
 

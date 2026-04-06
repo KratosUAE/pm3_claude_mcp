@@ -14,6 +14,7 @@ export interface CommandResult {
 
 export interface PM3Config {
   pm3Binary: string;
+  pm3Cwd: string;
   port?: string;
   idleTimeoutMs: number;
   maxTimeoutMs: number;

@@ -1,5 +1,6 @@
 import { execSync } from "node:child_process";
 import { accessSync, constants } from "node:fs";
+import { dirname } from "node:path";
 import type { PM3Config } from "./types.js";
 
 function findBinary(): string {
@@ -33,8 +34,14 @@ export function resolveConfig(): PM3Config {
   const parsedMax = parseInt(process.env.PM3_MAX_TIMEOUT ?? "", 10);
   const maxTimeoutMs = Number.isFinite(parsedMax) && parsedMax > 0 ? parsedMax : 120_000;
 
+  // Working directory for pm3 process. Defaults to the binary's parent dir
+  // (where pm3 resources like dictionaries and CARDS/ live).
+  // PM3_CWD env overrides this for cases where the binary is a symlink in /usr/local/bin.
+  const pm3Cwd = process.env.PM3_CWD || dirname(pm3Binary);
+
   return {
     pm3Binary,
+    pm3Cwd,
     idleTimeoutMs,
     maxTimeoutMs,
   };
