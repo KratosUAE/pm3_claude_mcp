@@ -29,8 +29,8 @@ Claude: "Done. The T5577 card now emulates your original EM 410x."
 ## Installation
 
 ```bash
-git clone https://github.com/anthropic/pm3-mcp.git
-cd pm3-mcp
+git clone https://github.com/KratosUAE/pm3_claude_mcp.git
+cd pm3_claude_mcp
 npm install
 npm run build
 ```
@@ -44,7 +44,7 @@ All configuration is through environment variables:
 | `PM3_BINARY_PATH` | No | Auto-detect via `which pm3` / `which proxmark3`, fallback `/usr/local/bin/pm3` | Path to pm3 binary |
 | `PM3_IDLE_TIMEOUT` | No | `3000` | Idle timeout in ms (how long to wait after last output before considering command complete) |
 | `PM3_MAX_TIMEOUT` | No | `120000` | Max timeout in ms for any single command |
-| `PM3_DEBUG` | No | off | Set to `1` to enable debug logging to stderr |
+| `PM3_DEBUG` | No | off | Set to `1`, `true`, or `yes` to enable debug logging to stderr |
 
 ## Claude Code setup
 
