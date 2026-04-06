@@ -56,7 +56,7 @@ Add to your MCP configuration (`~/.claude/mcp.json` or project `.mcp.json`):
   "mcpServers": {
     "proxmark3": {
       "command": "node",
-      "args": ["/absolute/path/to/pm3-mcp/dist/index.js"],
+      "args": ["/absolute/path/to/pm3_claude_mcp/dist/index.js"],
       "env": {
         "PM3_BINARY_PATH": "/path/to/your/proxmark3/pm3"
       }
